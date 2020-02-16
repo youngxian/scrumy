@@ -1,0 +1,41 @@
+<div class="container-fluid">
+    <h2>
+        Login
+    </h2>
+        <form #userloginForm="ngForm">
+    {{ userloginForm.value | json}}
+        <div class="form_group">
+            <label>
+        Email
+      </label>
+            <input required type="email" pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email" class="form-control" #email='ngModel' [class.is-invalid]="email.invalid && email.touched" [(ngModel)]='scrumLoginUserModel.email'>
+           <div *ngIf="email.errors && (email.invalid && email.touched)">
+                <small *ngIf="email.errors.pattern" class="text-danger">Please enter a valid email</small>
+                <small *ngIf="email.errors.required" class="text-danger">Email is required</small>
+            </div>
+        </div>
+        <div class="form_group">
+            <label>
+             Password
+           </label>
+            <input required type="password" pattern="(?=.*\d)(?=.*\W+).{8,15}$" #password='ngModel' [class.is-invalid]="password.invalid && password.touched" name="password" class="form-control" [(ngModel)]='scrumLoginUserModel.password'>
+            
+                <div *ngIf="password.errors && password.touched">
+                <small class="text-danger" *ngIf="password.errors.required">Password is required</small>
+                <small class="text-danger" *ngIf="password.errors.pattern">Password must be 8-15 characters and contain at least one special character and a numeral</small>
+            </div>
+        </div>
+        <div class="form_group">
+            <label>
+        Project name
+      </label>
+            <input required type="text" pattern="^[A-Za-z]{5,}$"  name="projectname" [class.is-invalid]="projectname.invalid && projectname.touched" #projectname='ngModel' class="form-control" [(ngModel)]='scrumLoginUserModel.projname'>
+                <div *ngIf="projectname.errors && (projectname.invalid && projectname.touched)">
+                <small *ngIf="projectname.errors.pattern" class="text-danger">Please enter a valid Project Name - Only alphabets</small>
+                <small *ngIf="projectname.errors.required" class="text-danger">Project Name is required</small>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Login</button>
+        <br>
+    </form>
+</div>
