@@ -2,17 +2,17 @@
     <h1>
         Create a new account
     </h1>
-   <!--<h5>{{ feedback }}</h5>-->
-    
+    <h5 class="text-success">{{ feedback }}</h5>
+
     <!--<form #userSignupForm="ngForm" novalidate (ngSubmit)='onSubmit()'>-->
-    <form #userSignupForm="ngForm">
-    {{ userSignupForm.value | json }}
+    <form #userSignupForm="ngForm" novalidate (ngSubmit)="signup_submit()">
+        {{ userSignupForm.value | json }}
         <div class="form_group">
             <label>
                 Email
             </label>
             <input required type="email" class="form-control" pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" [class.is-invalid]="email.invalid && email.touched" #email='ngModel' name="email" [(ngModel)]='scrumUserModel.email'>
-           <div *ngIf="email.errors && (email.invalid && email.touched)">
+            <div *ngIf="email.errors && (email.invalid && email.touched)">
                 <small *ngIf="email.errors.pattern" class="text-danger">Please enter a valid email</small>
                 <small *ngIf="email.errors.required" class="text-danger">Email field is required</small>
             </div>
@@ -21,7 +21,7 @@
             <label>
            Fullname
          </label>
-            <input type="text" class="form-control" required name="fullname" pattern="^[A-Za-z]{3,}$" [class.is-invalid]="fullname.invalid && fullname.touched"  #fullname='ngModel' [(ngModel)]='scrumUserModel.fullname'>
+            <input type="text" class="form-control" required name="fullname" pattern="^[A-Za-z]{3,}$" [class.is-invalid]="fullname.invalid && fullname.touched" #fullname='ngModel' [(ngModel)]='scrumUserModel.fullname'>
             <div *ngIf="fullname.errors && (fullname.invalid && fullname.touched)">
                 <small *ngIf="fullname.errors.pattern" class="text-danger">fullname must not contain numerals</small>
                 <small *ngIf="fullname.errors.required" class="text-danger">Your Fullname field is required</small>
@@ -31,8 +31,8 @@
             <label>
             Password
           </label>
-            <input required type="password"  class="form-control" pattern="(?=^.{8,15}$)(?=.*\d)(?=.*\W+)(?![.\n]).*$" name="password" [class.is-invalid]="password.invalid && password.touched"  #password='ngModel' [(ngModel)]='scrumUserModel.password'>
-           <div *ngIf="password.errors && (password.invalid && password.touched)">
+            <input required type="password" class="form-control" pattern="(?=^.{8,15}$)(?=.*\d)(?=.*\W+)(?![.\n]).*$" name="password" [class.is-invalid]="password.invalid && password.touched" #password='ngModel' [(ngModel)]='scrumUserModel.password'>
+            <div *ngIf="password.errors && (password.invalid && password.touched)">
                 <small class="text-danger" *ngIf="password.errors.required">Password is required</small>
                 <small class="text-danger" *ngIf="password.errors.pattern">Password must be 8-15 characters and contain at least one special character and a numeral</small>
             </div>
@@ -44,11 +44,12 @@
                 <option value='' selected>I am signin as</option>
                 <option *ngFor="let type of userTypes">{{ type }}</option>
             </select>
-           <div *ngIf="usertype.value === '' && usertype.touched">
+            <div *ngIf="usertype.value === '' && usertype.touched">
                 <small class="text-danger">User Type required</small>
             </div>
         </div>
         <button class="btn btn-primary" type="submit">Create User</button>
         <br>
+        <a routerLink='/login'>Already have an account? login here</a>
     </form>
 </div>
