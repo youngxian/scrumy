@@ -33,7 +33,7 @@
             <label>
         Project name
       </label>
-            <input required type="text" pattern="[^0-9][a-zA-Z][a-zA-Z0-9.,$;]$" name="projectname" [class.is-invalid]="projectname.invalid && projectname.touched" #projectname='ngModel' class="form-control" [(ngModel)]='scrumLoginUserModel.projname'>
+            <input required type="text" pattern="[^0-9][a-zA-Z][a-zA-Z0-9.,$;]+$" name="projectname" [class.is-invalid]="projectname.invalid && projectname.touched" #projectname='ngModel' class="form-control" [(ngModel)]='scrumLoginUserModel.projname'>
             <div *ngIf="projectname.errors && (projectname.invalid && projectname.touched)">
                 <small *ngIf="projectname.errors.pattern" class="text-danger">Please enter a valid Project Name - Only alphabets</small>
                 <small *ngIf="projectname.errors.required" class="text-danger">Project Name is required</small>
