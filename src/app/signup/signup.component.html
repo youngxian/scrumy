@@ -21,7 +21,7 @@
             <label>
            Fullname
          </label>
-            <input type="text" class="form-control" required name="fullname" pattern="^^(\w\w+)\s(\w+){3,}$" [class.is-invalid]="fullname.invalid && fullname.touched" #fullname='ngModel' [(ngModel)]='scrumUserModel.fullname'>
+            <input type="text" class="form-control" required name="fullname" pattern="^^(\w\w+)\s(\w+)\s(\w+){3,}$" [class.is-invalid]="fullname.invalid && fullname.touched" #fullname='ngModel' [(ngModel)]='scrumUserModel.fullname'>
             <div *ngIf="fullname.errors && (fullname.invalid && fullname.touched)">
                 <small *ngIf="fullname.errors.pattern" class="text-danger">fullname must not contain numerals</small>
                 <small *ngIf="fullname.errors.required" class="text-danger">Your Fullname field is required</small>
