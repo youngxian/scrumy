@@ -17,14 +17,14 @@ export class ChatComponent implements OnInit {
   status: any;
 
   constructor(private wsService: WebsocketService) { 
-    this.wsSubscription = this.wsService.createObservableSocket("wss://0l90clyplf.execute-api.us-east-2.amazonaws.com/test").subscribe(
-      data =>{
-        this.messageFromServer = data
-      },
-      err =>{
-        console.log('err', err);
-      }
-    )
+    // this.wsSubscription = this.wsService.createObservableSocket("wss://0l90clyplf.execute-api.us-east-2.amazonaws.com/test").subscribe(
+    //   data =>{
+    //     this.messageFromServer = data
+    //   },
+    //   err =>{
+    //     console.log('err', err);
+    //   }
+    // )
     
   }
 
@@ -61,7 +61,7 @@ export class ChatComponent implements OnInit {
       "message": this.chat_text, 
       "timestamp": this.getCurrentTime() }
       const cc = JSON.stringify(context);
-      this.status = this.wsService.sendMessage(cc);
+      // this.status = this.wsService.sendMessage(cc);
       this.chat_text =''
     }
 
@@ -71,7 +71,7 @@ export class ChatComponent implements OnInit {
     this.wsSubscription.unsubscribe();
     this.status ='The socket is closed';
   }
-  
+
   ngOnDestroy(){
     this.closeSocket();
   }
