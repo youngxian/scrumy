@@ -1,0 +1,23 @@
+p {
+    margin: 0;
+    font-size: 12px;
+}
+
+.goal_btn {
+    font-size: 11px;
+    border-radius: 0px;
+}
+
+.btn-function button {
+    font-size: 12px;
+    border-radius: 0;
+}
+
+button {
+    font-size: 12px;
+    border-radius: 0;
+}
+
+.middle .conn {
+    border-radius: 0px;
+}

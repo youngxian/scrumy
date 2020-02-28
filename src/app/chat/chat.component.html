@@ -1,0 +1,28 @@
+<section>
+    <div class="container">
+        <h3>Chat</h3>
+        <div>
+            <ul>
+                <li *ngFor="let message of messages">
+                    <div *ngIf="message.username == getUsername()">
+                        <div class="chat-container darker"><img src="" alt=alt={{ message.username }} class="right">
+                            <p>content</p><span class="time-left">timestamp</span>
+                        </div>
+                    </div>
+                    <div class="chat-container"><img src="" alt=alt={{ message.username }}>
+                        <p>content</p> <span class="time-right">timestamp</span>
+                    </div>
+                </li>
+            </ul>
+            <div class="chat-popup">
+                <form class="form-container">
+                    <label>
+                        <b>Message</b>
+                    </label>
+                    <input type="text" placeholder="Type message…" name="chat-text" required />
+                    <button type="submit" class="btn"></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
