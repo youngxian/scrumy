@@ -24,7 +24,8 @@ export class ScrumboardComponent implements OnInit {
   id: string;
   goals: any;
   projectid: any;
-
+  theuser: any = JSON.parse(localStorage.getItem('Authobj'));
+  yourname = this.theuser.name;
   feedback = '';
 
   constructor(private _scrumdataService: ScrumdataService, private _route: ActivatedRoute, private _router: Router) { 

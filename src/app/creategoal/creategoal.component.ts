@@ -13,6 +13,7 @@ export class CreategoalComponent implements OnInit {
   constructor(private _scrumdataService: ScrumdataService, private _route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    
   }
   userid = this._route.snapshot.paramMap.get('user_id');
   usercred = JSON.parse(localStorage.getItem('Authobj'));
