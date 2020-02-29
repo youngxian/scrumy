@@ -77,6 +77,15 @@ export class ScrumdataService {
         .set('Authorization', `Basic ${this.logincred}==`).append('Content-Type', 'application/json')
     })
   }
+  changerole(user: Createproj): Observable<any> {
+    this.token = localStorage.getItem('token');
+    this.logincred = JSON.parse(localStorage.getItem('Authuser'));
+    this.logincred = btoa(`${this.logincred.email}:${this.logincred.password}`);
+    return this._http.patch(this._changerole + user['password'] + '/', { 'role': user['usertype'], 'project_id': user['projname'] }, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Basic ${this.logincred}==`)
+    });
+  } 
 
 
 }

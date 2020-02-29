@@ -8,7 +8,7 @@ import { CreategoalComponent } from './creategoal/creategoal.component';
 import { CreateprojectComponent } from './createproject/createproject.component';
 import { ChatComponent } from './chat/chat.component';
 import { AuthGuard } from './auth.guard';
-
+import { ChangeroleComponent } from './changerole/changerole.component';
 
 const routes: Routes = [
   {path: '', component : HomepageComponent},
@@ -18,6 +18,7 @@ const routes: Routes = [
   { path: 'createproject', component: CreateprojectComponent },
   {path: 'creategoal/:user_id', component: CreategoalComponent},
   {path: 'chat', component: ChatComponent },
+  {path: 'changerole/:role_id', component: ChangeroleComponent},
   {path: 'scrumboard/:project_id', component: ScrumboardComponent, canActivate:[AuthGuard]}
 ];
 

@@ -5,16 +5,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { AppRoutingModule } from './app-routing.module';
+import { AuthGuard } from './auth.guard';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
+
+import { CreateprojectComponent } from './createproject/createproject.component';
+import { CreategoalComponent } from './creategoal/creategoal.component'
+import { ChatComponent } from './chat/chat.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { ScrumboardComponent } from './scrumboard/scrumboard.component';
 import { HomepageComponent } from './homepage/homepage.component';
-import { AuthGuard } from './auth.guard';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CreateprojectComponent } from './createproject/createproject.component';
-import { CreategoalComponent } from './creategoal/creategoal.component'
-import { ChatComponent } from './chat/chat.component';
+import { ChangeroleComponent } from './changerole/changerole.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { ChatComponent } from './chat/chat.component';
     CreateprojectComponent,
     CreategoalComponent,
     ChatComponent,
+    ChangeroleComponent,
     
   ],
   imports: [
