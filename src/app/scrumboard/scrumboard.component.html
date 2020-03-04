@@ -25,13 +25,13 @@
         <div class="d-flex flex-row justify-content-between mt-4">
             <h3><strong>{{ participant['user']['nickname'] }}</strong></h3>
             <div *ngIf="rolee == 'Developer' && username == participant['user']['nickname']">
-                <button class="btn bg-primary text-white" (click)="onClick(participant['user']['id'])">
+                <button class="btn bg-primary text-white" (click)="onClick(participant)">
               + Add Goal for {{ participant['user']['nickname'] }}
             </button>
             </div>
 
             <div *ngIf="rolee == 'Owner'" class="d-flex flex-row">
-                <button class="btn bg-success text-white" (click)="onClick(participant['user']['id'])">
+                <button class="btn bg-success text-white" (click)="onClick(participant)">
               + Add Goal for {{ participant['user']['nickname'] }}
             </button>
                 <button class="ml-4 btn bg-primary text-white" (click)="onClickrole(participant)">change role for

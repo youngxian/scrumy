@@ -73,8 +73,11 @@ this.getProjectGoals();
     }
   }
 
-  onClick(task_for_the_week: string) {
-    this._router.navigate(['/creategoal/', task_for_the_week])
+  onClick(task_for_the_week) {
+    let user = task_for_the_week['user']['id'] 
+    console.log("id = " + task_for_the_week["id"])
+    localStorage.setItem('goal', JSON.stringify(task_for_the_week["id"]));
+    this._router.navigate(['/creategoal/', user])
   }
 
   startSprint() {
