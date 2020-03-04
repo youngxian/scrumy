@@ -45,7 +45,7 @@ export class ScrumdataService {
   edittask(goal): Observable<any> {
     this.token = localStorage.getItem('token');
     this.logincred = JSON.parse(localStorage.getItem('Authuser'));
-    console.log("Task Moved");
+    // console.log("Task Moved");
     this.logincred = btoa(`${this.logincred.email}:${this.logincred.password}`);
     return this._http.patch(this._updatetaskUrl + goal.id + '/', { status: goal.status }, {
       headers: new HttpHeaders()
@@ -60,7 +60,7 @@ export class ScrumdataService {
   creategoal(user: Creategoal): Observable<any> {
     this.logincred = JSON.parse(localStorage.getItem('Authuser'));
     this.logincred = btoa(`${this.logincred.email}:${this.logincred.password}`);
-    console.log('This user role_id ' + user['roleid'] + ' name : ' + user['name'] + ' project_id : ' + user['projectid'] + ' user : ' + user['user']);
+    // console.log('This user role_id ' + user['roleid'] + ' name : ' + user['name'] + ' project_id : ' + user['projectid'] + ' user : ' + user['user']);
     return this._http.post<any>(this._updatetaskUrl, { 'name': user['name'], 'project_id': user['projectid'], 'user': user['roleid'] }, {
       headers: new HttpHeaders()
         .set('Authorization', `Basic ${this.logincred}==`).append('Content-Type', 'application/json')

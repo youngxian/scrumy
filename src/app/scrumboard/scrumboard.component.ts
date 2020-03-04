@@ -75,15 +75,12 @@ this.getProjectGoals();
 
   onClick(task_for_the_week) {
     let user = task_for_the_week['user']['id'] 
-    console.log("id = " + task_for_the_week["id"])
     localStorage.setItem('goal', JSON.stringify(task_for_the_week["id"]));
     this._router.navigate(['/creategoal/', user])
   }
 
   startSprint() {
     this.projectid = JSON.parse(localStorage.getItem('Authobj'));
-
-    console.log('the project id' + this.projectid.project_id)
     this._scrumdataService.createSprint(this.projectid.project_id).subscribe(
       data => {
         this.feedback = "sprint just started"
@@ -96,7 +93,6 @@ this.getProjectGoals();
     )
   }
   onClickrole(participant) {
-    console.log("the participant " + JSON.stringify(participant["id"]))
     this._router.navigate(['/changerole/', participant["id"]]);
   }
   getProjectGoals() {
