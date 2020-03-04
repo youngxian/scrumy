@@ -1,6 +1,7 @@
 <div class="bg-danger d-flex align-content-center justify-content-between flex-row">
     <h1 class="text-white m-4">Dashboard</h1>
     <h3 class="text-white">Welcome, {{ yourname }}</h3>
+    <h3 class="text-white">Your Role = {{ rolee }}</h3>
     <button class="mr-4 btn bg-danger text-white ml-3" routerLink='/login'>Logout</button>
 </div>
 
@@ -33,7 +34,7 @@
                 <button class="btn bg-success text-white" (click)="onClick(participant['user']['id'])">
               + Add Goal for {{ participant['user']['nickname'] }}
             </button>
-                <button class="ml-4 btn bg-primary text-white" (click)="onClickrole()">change role for
+                <button class="ml-4 btn bg-primary text-white" (click)="onClickrole(participant)">change role for
               {{ participant['user']['nickname'] }}</button><br>
             </div>
         </div>

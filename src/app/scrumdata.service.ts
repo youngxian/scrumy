@@ -81,6 +81,7 @@ export class ScrumdataService {
     this.token = localStorage.getItem('token');
     this.logincred = JSON.parse(localStorage.getItem('Authuser'));
     this.logincred = btoa(`${this.logincred.email}:${this.logincred.password}`);
+    console.log("change: "+user['password']+"role: "+user['usertype']+"project_id "+user['projname'])
     return this._http.patch(this._changerole + user['password'] + '/', { 'role': user['usertype'], 'project_id': user['projname'] }, {
       headers: new HttpHeaders()
         .set('Authorization', `Basic ${this.logincred}==`)

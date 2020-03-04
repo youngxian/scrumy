@@ -59,7 +59,6 @@ this.getProjectGoals();
 
     } else {
       transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex);
-      console.log('The goal', event.item.data)
       let goal = event.item.data;
       event.item.data.status = this.calcultateRole(event.container.id);
       this._scrumdataService.edittask(goal)
@@ -93,13 +92,13 @@ this.getProjectGoals();
       }
     )
   }
-  onClickrole() {
-    this._router.navigate(['/changerole/', this.id]);
+  onClickrole(participant) {
+    console.log("the participant " + JSON.stringify(participant["id"]))
+    this._router.navigate(['/changerole/', participant["id"]]);
   }
   getProjectGoals() {
     this._scrumdataService.allProjectGoals(this.project_id).subscribe(
       data => {
-        console.log(data)
         this._participants = data['data'];
         this.role = JSON.parse(localStorage.getItem('Authobj'));
         this.rolee = this.role.role;
